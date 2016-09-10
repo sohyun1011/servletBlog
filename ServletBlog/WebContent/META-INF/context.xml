@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- DBCP를 위한 DB연결설정 -->
+	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
+		maxIdle="100" maxTotal="300" maxWaitMillis="5000" name="jdbc/mybook"
+		password="root" type="javax.sql.DataSource" url="jdbc:mysql://127.0.0.1:3306/mybook"
+		username="root" />
+</Context>
