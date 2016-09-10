@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- JSTL을 사용하기 위해서는 라이브러리를 로딩 해야 한다 -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -14,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Clean Blog</title>
+<title>Clean Blog - Sample Post</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -53,15 +50,7 @@
 				<span class="sr-only">Toggle navigation</span> Menu <i
 					class="fa fa-bars"></i>
 			</button>
-			
-			<c:if test="${not empty sessionScope.member}">
-			<div class ="navbar-brand">${sessionScope.member.id}님 </div> 
-             <a class ="navbar-brand" href="Member.service?cmd=logout">로그아웃</a>
-			</c:if>
-			
-			   <c:if test="${empty sessionScope.member}"> 
-               <a class ="navbar-brand"  href ="index.jsp"> Start Bootstrap</a>
-               </c:if>
+			<a class="navbar-brand" href="index.jsp">Start Bootstrap</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,11 +58,9 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="index.jsp">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				
-				<li><a href="board.do?cmd=page">게시글 작성</a></li>
-				
-				<li><a href="login.jsp">Login</a></li>
+				<li><a href="about.jsp">About</a></li>
+				<li><a href="post.jsp">Sample Post</a></li>
+				<li><a href="contact.jsp">Contact</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -83,74 +70,72 @@
 	<!-- Page Header -->
 	<!-- Set your background image for this header on the line below. -->
 	<header class="intro-header"
-		style="background-image: url('img/home-bg.jpg')">
+		style="background-image: url('img/post-bg.jpg')">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading">
-					<h1>Clean Blog</h1>
-					<hr class="small">
-					<span class="subheading">A Clean Blog Theme by Start
-						Bootstrap</span>
+				<div class="post-heading">
+					<h1>Man must explore, and this is exploration at its greatest</h1>
+					<h2 class="subheading">Problems look mighty small from 150
+						miles up</h2>
+					<span class="meta">Posted by <a href="#">Start Bootstrap</a>
+						on August 24, 2014
+					</span>
 				</div>
 			</div>
 		</div>
 	</div>
 	</header>
 
-	<!-- Main Content -->
+
+
+
+
+
+	<!-- Post Content -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">Man must explore, and this is
-							exploration at its greatest</h2>
-						<h3 class="post-subtitle">Problems look mighty small from 150
-							miles up</h3>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on September 24, 2014
-					</p>
-				</div>
-				<hr>
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">I believe every human has a finite
-							number of heartbeats. I don't intend to waste any of mine.</h2>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on September 18, 2014
-					</p>
-				</div>
-				<hr>
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">Science has not yet mastered prophecy
-						</h2>
-						<h3 class="post-subtitle">We predict too much for the next
-							year and yet far too little for the next ten.</h3>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on August 24, 2014
-					</p>
-				</div>
-				<hr>
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">Failure is not an option</h2>
-						<h3 class="post-subtitle">Many say exploration is part of our
-							destiny, but it’s actually our duty to future generations.</h3>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on July 8, 2014
-					</p>
-				</div>
-				<hr>
-				<!-- Pager -->
-				<ul class="pager">
-					<li class="next"><a href="#">Older Posts &rarr;</a></li>
-				</ul>
+				<p>Want to get in touch with me? Fill out the form below to send
+					me a message and I will try to get back to you within 24 hours!</p>
+				<!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+				<!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+				<!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+				<form name="sentMessage" action="board.do?cmd=register"
+					method="POST">
+					<div class="row control-group">
+						<label>Title</label>
+						<div
+							class="form-group col-xs-12 floating-label-form-group controls">
+								<input type="text" class="form-control" placeholder="Title"
+									id="id" name="title" required
+									data-validation-required-message="Please enter your id.">
+						</div>
+					</div>
+
+
+					<div class="row control-group">
+						<label>Content</label>
+
+						<div
+							class="form-group col-xs-12 floating-label-form-group controls">
+							<textarea class="form-control" rows="5" id="comment" name="content"></textarea>
+						</div>
+					</div>
+
+
+
+					<br>
+					<div id="success"></div>
+					<div class="row">
+						<div class="form-group col-xs-12">
+							<button type="submit" class="btn btn-default">Send</button>
+
+
+							<button type="reset" class="btn btn-default">Cancel</button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
