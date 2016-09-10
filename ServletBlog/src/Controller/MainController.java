@@ -11,40 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import Interface.ServiceForward;
 import Interface.ServiceInterface;
-import Service.BoardPageService;
-import Service.BoardRegisterService;
+import Service.MainService;
 
 /**
- * Servlet implementation class boardController
+ * Servlet implementation class MainController
  */
-@WebServlet("/board.do")
-public class boardController extends HttpServlet {
+@WebServlet("/index")
+public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	@SuppressWarnings("unused")
-	protected void service(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("board controller init");
-
-		String cmd = request.getParameter("cmd");
-		System.out.println("board 분기 명령어: " + cmd);
-
+		
 		ServiceForward forward = null;
 		ServiceInterface service = null;
+		
+		service = new MainService();
+		forward = service.excute(request, response);
 
-		if (cmd.equals("page")) { 
-			service = new BoardPageService();
-			forward = service.excute(request, response);
-		}
-		
-		else if(cmd.equals("register")){
-			service = new BoardRegisterService();
-			forward = service.excute(request, response);
-		}
-
-		
-		
+	
 		
 		if (forward != null) {
 
@@ -60,7 +47,11 @@ public class boardController extends HttpServlet {
 
 			}
 		}
-
+		
+		
+		
+		
+		
 	}
 
 }

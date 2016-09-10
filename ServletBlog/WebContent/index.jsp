@@ -53,26 +53,26 @@
 				<span class="sr-only">Toggle navigation</span> Menu <i
 					class="fa fa-bars"></i>
 			</button>
-			
+
 			<c:if test="${not empty sessionScope.member}">
-			<div class ="navbar-brand">${sessionScope.member.id}님 </div> 
-             <a class ="navbar-brand" href="Member.service?cmd=logout">로그아웃</a>
+				<div class="navbar-brand">${sessionScope.member.id}님</div>
+				<a class="navbar-brand" href="Member.service?cmd=logout">로그아웃</a>
 			</c:if>
-			
-			   <c:if test="${empty sessionScope.member}"> 
-               <a class ="navbar-brand"  href ="index.jsp"> Start Bootstrap</a>
-               </c:if>
+
+			<c:if test="${empty sessionScope.member}">
+				<a class="navbar-brand" href="index.jsp"> Start Bootstrap</a>
+			</c:if>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="index.jsp">Home</a></li>
+				<li><a href="index">Home</a></li>
 				<li><a href="about.html">About</a></li>
-				
+
 				<li><a href="board.do?cmd=page">게시글 작성</a></li>
-				
+
 				<li><a href="login.jsp">Login</a></li>
 			</ul>
 		</div>
@@ -104,49 +104,29 @@
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<div class="post-preview">
 					<a href="post.jsp">
-						<h2 class="post-title">Man must explore, and this is
-							exploration at its greatest</h2>
-						<h3 class="post-subtitle">Problems look mighty small from 150
-							miles up</h3>
+						<h2 class="post-title">aaaaaaaaaaaaaaaaa</h2>
+						<h3 class="post-subtitle">bbbbbbbbbbbbbbbb</h3>
 					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on September 24, 2014
-					</p>
+					<p class="post-meta">Posted by sohyun on September 10, 2016</p>
 				</div>
 				<hr>
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">I believe every human has a finite
-							number of heartbeats. I don't intend to waste any of mine.</h2>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on September 18, 2014
-					</p>
-				</div>
-				<hr>
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">Science has not yet mastered prophecy
-						</h2>
-						<h3 class="post-subtitle">We predict too much for the next
-							year and yet far too little for the next ten.</h3>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on August 24, 2014
-					</p>
-				</div>
-				<hr>
-				<div class="post-preview">
-					<a href="post.jsp">
-						<h2 class="post-title">Failure is not an option</h2>
-						<h3 class="post-subtitle">Many say exploration is part of our
-							destiny, but it’s actually our duty to future generations.</h3>
-					</a>
-					<p class="post-meta">
-						Posted by <a href="#">Start Bootstrap</a> on July 8, 2014
-					</p>
-				</div>
-				<hr>
+
+
+				<c:forEach var="member" items="${requestScope.boardList}">
+					<div class="post-preview">
+						<a href=${member.id}>
+							<h2 class="post-title">${member.title}</h2>
+							<h3 class="post-subtitle">${member.content}</h3>
+						</a>
+						<p class="post-meta">Posted by sohyun on September 10, 2016</p>
+					</div>
+				</c:forEach>
+
+
+
+
+
+
 				<!-- Pager -->
 				<ul class="pager">
 					<li class="next"><a href="#">Older Posts &rarr;</a></li>
@@ -198,7 +178,6 @@
 
 	<!-- Theme JavaScript -->
 	<script src="js/clean-blog.min.js"></script>
-
 </body>
 
 </html>
